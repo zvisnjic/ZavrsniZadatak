@@ -17,7 +17,7 @@ import java.time.Duration;
 public class BaseHelper
 {
     protected static WebDriver driver = new ChromeDriver();
-    protected static WebDriverWait wdWait = new WebDriverWait(driver, Duration.ofSeconds(1));
+    protected static WebDriverWait wdWait = new WebDriverWait(driver, Duration.ofSeconds(10));
     protected static JavascriptExecutor js = (JavascriptExecutor) driver;
     SlackBlocksMessageBuilder slackMessageBuilder = new SlackBlocksMessageBuilder();
     protected SoftAssert softAssertion = new SoftAssert();

@@ -1,18 +1,22 @@
 package tests;
 
 import org.junit.Test;
+import pages.FindProductELakolijeTest;
+
+
 
 public class ELakolijeTest extends BaseTest{
-
-    String url = "https://elakolije.rs/";
-    String searchTerm = "hleb";
-
 
     @Test
 
     public void findProduct() throws InterruptedException {
 
+        String url = "https://elakolije.rs/";
+        String searchTerm = "hleb";
 
-        Thread.sleep(1000);
+        FindProductELakolijeTest elementFind = new FindProductELakolijeTest(driver);
+        elementFind.searchingResult(url, searchTerm);
+
+        Thread.sleep(2000);
     }
 }
