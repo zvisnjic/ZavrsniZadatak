@@ -8,12 +8,12 @@ import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 
-public class FindProductELakolijeTest extends BaseHelper
+public class FindProductELakolijePage extends BaseHelper
 {
 
     WebDriver driver;
 
-    public FindProductELakolijeTest(WebDriver driver){
+    public FindProductELakolijePage(WebDriver driver){
 
         this.driver = driver;
         PageFactory.initElements(driver, this);
@@ -26,6 +26,9 @@ public class FindProductELakolijeTest extends BaseHelper
 
     @FindBy(id = "close")
     WebElement newsletterIcon;
+
+    @FindBy(className = "artikli_pojedinacan_dodaj")
+    WebElement addButton;
 
     private void runPage(String url){
 
