@@ -7,26 +7,23 @@ import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 
-public class ElakolijeBuyProductPage extends BaseHelper {
+public class ELakolijeHomePage extends BaseHelper {
 
     WebDriver driver;
 
-    public ElakolijeBuyProductPage(WebDriver driver){
+    public ELakolijeHomePage(WebDriver driver){
 
         this.driver = driver;
         PageFactory.initElements(driver, this);
     }
 
-    @FindBy(id = "slika_pri")
-    WebElement buttonPrijava;
-
     @FindBy(id = "close")
     WebElement newsletterIcon;
 
-    public void clickPrijava(){
+    public void runPage(String url){
 
-        wdWait.until(ExpectedConditions.elementToBeClickable(buttonPrijava));
-        buttonPrijava.click();
+        driver.get(url);
+        wdWait.until(ExpectedConditions.visibilityOf(newsletterIcon));
+        newsletterIcon.click();
     }
-
-   }
+}

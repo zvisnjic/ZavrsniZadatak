@@ -7,7 +7,6 @@ import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 
-import java.util.concurrent.ExecutorService;
 
 public class ELakolijeLogInUserPage extends BaseHelper {
 

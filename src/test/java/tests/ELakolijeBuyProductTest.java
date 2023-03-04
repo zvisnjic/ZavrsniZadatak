@@ -1,6 +1,7 @@
 package tests;
 
 import org.junit.Test;
+import pages.ELakolijeHomePage;
 import pages.ELakolijeLogInUserPage;
 import pages.ElakolijeBuyProductPage;
 
@@ -16,8 +17,11 @@ public class ELakolijeBuyProductTest extends BaseTest {
         String passWord = "wurth232";
         String url = "https://elakolije.rs/";
 
+        ELakolijeHomePage runHomePage = new ELakolijeHomePage(driver);
+        runHomePage.runPage(url);
+
         ElakolijeBuyProductPage openLogInPage = new ElakolijeBuyProductPage(driver);
-        openLogInPage.openLogInForm(url);
+        openLogInPage.clickPrijava();
 
         ELakolijeLogInUserPage logInUser = new ELakolijeLogInUserPage(driver);
         logInUser.loggingCostumer(userName, passWord);
