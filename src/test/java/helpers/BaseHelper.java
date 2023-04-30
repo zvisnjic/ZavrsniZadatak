@@ -7,6 +7,7 @@ import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import slack.Slack;
 import slack.SlackBlocksMessageBuilder;
@@ -14,13 +15,19 @@ import slack.SlackChannel;
 import org.testng.asserts.SoftAssert;
 import java.time.Duration;
 
-public class BaseHelper
-{
-    protected static WebDriver driver = new ChromeDriver();
+public class BaseHelper {
+    protected static WebDriver driver = setup();
     protected static WebDriverWait wdWait = new WebDriverWait(driver, Duration.ofSeconds(10));
     protected static JavascriptExecutor js = (JavascriptExecutor) driver;
     SlackBlocksMessageBuilder slackMessageBuilder = new SlackBlocksMessageBuilder();
     protected SoftAssert softAssertion = new SoftAssert();
+    public static WebDriver setup()
+    {
+        ChromeOptions options = new ChromeOptions();
+        options.addArguments("--remote-allow-origins=*");
+        WebDriver driver = new ChromeDriver(options);
+        return driver;
+    }
     protected void assertResult(String result, String assertText)
     {
         if (!result.contains(assertText))
@@ -42,6 +49,7 @@ public class BaseHelper
     WebElement element = driver.findElement(By.cssSelector(selector));
     return element;
     }
+
 
 
 }

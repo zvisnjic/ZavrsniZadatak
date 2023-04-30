@@ -25,5 +25,6 @@ public class ELakolijeHomePage extends BaseHelper {
         driver.get(url);
         wdWait.until(ExpectedConditions.visibilityOf(newsletterIcon));
         newsletterIcon.click();
+
     }
 }
