@@ -5,20 +5,26 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.testng.Assert;
-import pages.FindProductELakolijePage;
+import pages.ELakolijeHomePage;
+import pages.ELakolijeFindProductPage;
 
 
-public class ELakolijeSearchTermPresensTest extends BaseTest{
+public class ELakolijeSearchTermPresensTest extends BaseTest
+{
 
     @Test
 
-    public void findProduct() throws InterruptedException {
+    public void findProduct() throws InterruptedException
+    {
 
         String url = "https://elakolije.rs/";
-        String searchTerm = "hleb";
+        String searchTerm = "mleko";
 
-        FindProductELakolijePage elementFind = new FindProductELakolijePage(driver);
-        elementFind.searchingResult(url, searchTerm);
+        ELakolijeHomePage runHomePage = new ELakolijeHomePage(driver);
+        runHomePage.runPage(url);
+
+        ELakolijeFindProductPage elementFind = new ELakolijeFindProductPage(driver);
+        elementFind.searchingResult(searchTerm);
 
         /*BuySearchedTerm userLogging = new BuySearchedTerm(driver);
         userLogging.userLogIn();*/
@@ -32,6 +38,7 @@ public class ELakolijeSearchTermPresensTest extends BaseTest{
         Assert.assertTrue(results.getText().toLowerCase().contains(searchTerm.toLowerCase()),
                 "ELakolijTest test fall");
 
-        Thread.sleep(2000);
+        Thread.sleep(5000);
     }
+
 }

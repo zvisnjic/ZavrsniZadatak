@@ -8,12 +8,12 @@ import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 
-public class FindProductELakolijePage extends BaseHelper
+public class ELakolijeFindProductPage extends BaseHelper
 {
 
     WebDriver driver;
 
-    public FindProductELakolijePage(WebDriver driver){
+    public ELakolijeFindProductPage(WebDriver driver){
 
         this.driver = driver;
         PageFactory.initElements(driver, this);
@@ -24,38 +24,26 @@ public class FindProductELakolijePage extends BaseHelper
     @FindBy(id = "zaglavlje_lupica")
     WebElement searchIcon;
 
-    @FindBy(id = "close")
-    WebElement newsletterIcon;
-
-    @FindBy(className = "artikli_pojedinacan_dodaj")
-    WebElement addButton;
-
-    private void runPage(String url){
-
-        driver.get(url);
-        wdWait.until(ExpectedConditions.visibilityOf(newsletterIcon));
-        newsletterIcon.click();
-    }
-
-    private void inputSearchTerm(String searchTerm){
+    private void inputSearchTerm(String searchTerm)
+    {
 
         wdWait.until(ExpectedConditions.visibilityOfElementLocated(By.id("zaglavlje_unos")));
         searchField.sendKeys(searchTerm);
     }
 
-    private void clickSearchIcon(){
+    private void clickSearchIcon()
+    {
 
         searchIcon.click();
 
     }
 
-    public void searchingResult(String url, String searchTerm){
+    public void searchingResult(String searchTerm)
+    {
 
-        runPage(url);
         inputSearchTerm(searchTerm);
         clickSearchIcon();
 
     }
-
 
 }
